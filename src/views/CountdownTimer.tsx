@@ -5,8 +5,8 @@ import SideBar from '../components/SideBar'
 function CountdownTimer() {
   return (
     <div className='flex h-[100vh]'>
-    <SideBar />
-    <Timer />
+      <SideBar />
+      <Timer />
     </div>
   )
 }

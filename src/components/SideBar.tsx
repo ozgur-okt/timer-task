@@ -1,6 +1,7 @@
 import React from 'react';
 import { useButtonStore } from '../store/buttonStore';
 import { useTimerStore } from '../store/timerStore';
+import ToggleButton from './ToggleButton';
 
 function SideBar() {
   const label = useButtonStore((state) => state.label);
@@ -24,9 +25,10 @@ function SideBar() {
 
   return (
     <div className="w-64 h-full bg-gray-200 p-4">
-       <input type="text" value={header} onChange={handleHeaderChange} className="mb-4 w-full" placeholder="Timer Header" />
+      <input type="text" value={header} onChange={handleHeaderChange} className="mb-4 w-full" placeholder="Timer Header" />
       <input type="text" value={label} onChange={handleLabelChange} className="mb-4 w-full" placeholder="Button Label" />
       <input type="text" value={link} onChange={handleLinkChange} className="mb-4 w-full" placeholder="Button Link" />
+      <ToggleButton />
     </div>
   );
 }

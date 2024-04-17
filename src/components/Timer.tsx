@@ -5,6 +5,7 @@ import CustomButton from './CustomButton';
 function Timer() {
   const time = useTimerStore((state) => state.time);
   const setTime = useTimerStore((state) => state.setTime);
+  const header = useTimerStore((state) => state.header);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,6 +22,7 @@ function Timer() {
 
   return (
     <div>
+      <h5>{header}</h5>
       {days}d : {hours}h : {minutes}m : {seconds}s
       <CustomButton />
     </div>

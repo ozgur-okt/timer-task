@@ -10,6 +10,10 @@ function SideBar() {
   const setLink = useButtonStore((state) => state.setLink);
   const header = useTimerStore((state) => state.header);
   const setHeader = useTimerStore((state) => state.setHeader);
+  const position = useTimerStore((state) => state.position);
+  const setPosition = useTimerStore((state) => state.setPosition);
+  const timeUnit = useTimerStore((state) => state.timeUnit);
+  const setTimeUnit = useTimerStore((state) => state.setTimeUnit);
 
   const handleLabelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLabel(event.target.value);
@@ -23,12 +27,51 @@ function SideBar() {
     setHeader(event.target.value);
   };
 
+  const handlePositionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPosition(event.target.value as 'top-sticky' | 'top-static' | 'bottom-static');
+  };
+  const handleTimeUnitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTimeUnit(event.target.value as 'days' | 'hours' | 'minutes' | 'seconds');
+  };
+
   return (
     <div className="w-64 h-full bg-gray-200 p-4">
       <input type="text" value={header} onChange={handleHeaderChange} className="mb-4 w-full" placeholder="Timer Header" />
       <input type="text" value={label} onChange={handleLabelChange} className="mb-4 w-full" placeholder="Button Label" />
       <input type="text" value={link} onChange={handleLinkChange} className="mb-4 w-full" placeholder="Button Link" />
       <ToggleButton />
+      <div className="mt-4">
+        <label>
+          <input type="radio" value="top-sticky" checked={position === 'top-sticky'} onChange={handlePositionChange} />
+          Top Sticky
+        </label>
+        <label>
+          <input type="radio" value="top-static" checked={position === 'top-static'} onChange={handlePositionChange} />
+          Top Static
+        </label>
+        <label>
+          <input type="radio" value="bottom-static" checked={position === 'bottom-static'} onChange={handlePositionChange} />
+          Bottom Static
+        </label>
+      </div>
+      <div className="mt-4">
+        <label>
+          <input type="radio" value="days" checked={timeUnit === 'days'} onChange={handleTimeUnitChange} />
+          Days
+        </label>
+        <label>
+          <input type="radio" value="hours" checked={timeUnit === 'hours'} onChange={handleTimeUnitChange} />
+          Hours
+        </label>
+        <label>
+          <input type="radio" value="minutes" checked={timeUnit === 'minutes'} onChange={handleTimeUnitChange} />
+          Minutes
+        </label>
+        <label>
+          <input type="radio" value="seconds" checked={timeUnit === 'seconds'} onChange={handleTimeUnitChange} />
+          Seconds
+        </label>
+      </div>
     </div>
   );
 }

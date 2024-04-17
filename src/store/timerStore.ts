@@ -9,6 +9,10 @@ type TimerState = {
   setIsOpen: (isOpen: boolean) => void;
   isCloseIconVisible: boolean;
   setCloseIconVisibility: (visibility: boolean) => void;
+  position: 'top-sticky' | 'top-static' | 'bottom-static';
+  setPosition: (position: 'top-sticky' | 'top-static' | 'bottom-static') => void;
+  timeUnit: 'days' | 'hours' | 'minutes' | 'seconds';
+  setTimeUnit: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => void;
 };
 
 export const useTimerStore = create<TimerState>((set) => ({
@@ -20,4 +24,8 @@ export const useTimerStore = create<TimerState>((set) => ({
   setIsOpen: (isOpen: boolean) => set({ isOpen }),
   isCloseIconVisible: true,
   setCloseIconVisibility: (visibility: boolean) => set({ isCloseIconVisible: visibility }),
+  position: 'top-sticky',
+  setPosition: (position: 'top-sticky' | 'top-static' | 'bottom-static') => set({ position }),
+  timeUnit: 'seconds',
+  setTimeUnit: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => set({ timeUnit: unit }),
 }));

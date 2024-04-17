@@ -2,6 +2,7 @@ import React from 'react';
 import { useButtonStore } from '../store/buttonStore';
 import { useTimerStore } from '../store/timerStore';
 import ToggleButton from './ToggleButton';
+import { useUnitLabelStore } from '../store/unitLabelStore';
 
 function SideBar() {
   const label = useButtonStore((state) => state.label);
@@ -16,6 +17,10 @@ function SideBar() {
   const setTimeUnit = useTimerStore((state) => state.setTimeUnit);
   const setStartHours = useTimerStore((state) => state.setStartHours);
   const [countdownStartHours, setCountdownStartHours] = React.useState(0);
+  const labels = useUnitLabelStore((state) => state.labels);
+  const setUnitLabel = useUnitLabelStore((state) => state.setUnitLabel);
+  const display = useUnitLabelStore((state) => state.display);
+  const toggleDisplay = useUnitLabelStore((state) => state.toggleDisplay);
 
   const handleLabelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLabel(event.target.value);
@@ -37,6 +42,16 @@ function SideBar() {
   };
   const handleStartHoursChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCountdownStartHours(Number(event.target.value));
+  };
+  const handleUnitLabelChange = (unit: 'days' | 'hours' | 'minutes' | 'seconds') => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setUnitLabel(unit, event.target.value);
+  };
+  const handleDisplayChange = (unit: 'days' | 'hours' | 'minutes' | 'seconds') => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    toggleDisplay(unit);
   };
 
   return (
@@ -78,6 +93,30 @@ function SideBar() {
           <input type="radio" value="bottom-static" checked={position === 'bottom-static'} onChange={handlePositionChange} />
           Bottom Static
         </label>
+      </div>
+      <div className="mt-4">
+        <label>
+          <input type="checkbox" checked={display.days} onChange={handleDisplayChange('days')} />
+          Days
+        </label>
+        <label>
+          <input type="checkbox" checked={display.hours} onChange={handleDisplayChange('hours')} />
+          Hours
+        </label>
+        <label>
+          <input type="checkbox" checked={display.minutes} onChange={handleDisplayChange('minutes')} />
+          Minutes
+        </label>
+        <label>
+          <input type="checkbox" checked={display.seconds} onChange={handleDisplayChange('seconds')} />
+          Seconds
+        </label>
+      </div>
+      <div className="mt-4">
+        <input type="text" value={labels.days} onChange={handleUnitLabelChange('days')} placeholder="Days Label" />
+        <input type="text" value={labels.hours} onChange={handleUnitLabelChange('hours')} placeholder="Hours Label" />
+        <input type="text" value={labels.minutes} onChange={handleUnitLabelChange('minutes')} placeholder="Minutes Label" />
+        <input type="text" value={labels.seconds} onChange={handleUnitLabelChange('seconds')} placeholder="Seconds Label" />
       </div>
       <input type="text" value={label} onChange={handleLabelChange} className="mb-4 w-full" placeholder="Button Label" />
       <input type="text" value={link} onChange={handleLinkChange} className="mb-4 w-full" placeholder="Button Link" />

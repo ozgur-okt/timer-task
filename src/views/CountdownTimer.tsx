@@ -2,23 +2,21 @@ import React from 'react'
 import Timer from '../components/Timer'
 import SideBar from '../components/SideBar'
 import { useTimerStore } from '../store/timerStore'
+import { positionTypes } from '../types';
 
 function CountdownTimer() {
   const position = useTimerStore((state) => state.position);
   let timerPositionClass = '';
 
   switch (position) {
-    case 'top-sticky':
+    case positionTypes.topSticky:
       timerPositionClass = 'sticky top-0';
-      console.log('top-sticky');
       break;
-    case 'top-static':
+    case positionTypes.topStatic:
       timerPositionClass = 'static';
-      console.log('top-static');
       break;
-    case 'bottom-static':
+    case positionTypes.bottomStatic:
       timerPositionClass = 'static mt-auto';
-      console.log('bottom-static');
       break;
   }
 

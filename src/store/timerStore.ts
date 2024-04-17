@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import { PositionType, UnitType, positionTypes, unitTypes } from '../types';
 
 type TimerState = {
   time: number;
@@ -10,10 +11,10 @@ type TimerState = {
   setIsOpen: (isOpen: boolean) => void;
   isCloseIconVisible: boolean;
   setCloseIconVisibility: (visibility: boolean) => void;
-  position: 'top-sticky' | 'top-static' | 'bottom-static';
-  setPosition: (position: 'top-sticky' | 'top-static' | 'bottom-static') => void;
-  timeUnit: 'days' | 'hours' | 'minutes' | 'seconds';
-  setTimeUnit: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => void;
+  position: PositionType;
+  setPosition: (position: PositionType) => void;
+  timeUnit: UnitType;
+  setTimeUnit: (unit: UnitType) => void;
   theme: 'dark' | 'light' | 'colorful';
   setTheme: (theme: 'dark' | 'light' | 'colorful') => void;
 };
@@ -28,10 +29,10 @@ export const useTimerStore = create<TimerState>((set) => ({
   setIsOpen: (isOpen: boolean) => set({ isOpen }),
   isCloseIconVisible: true,
   setCloseIconVisibility: (visibility: boolean) => set({ isCloseIconVisible: visibility }),
-  position: 'top-sticky',
-  setPosition: (position: 'top-sticky' | 'top-static' | 'bottom-static') => set({ position }),
-  timeUnit: 'seconds',
-  setTimeUnit: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => set({ timeUnit: unit }),
+  position: Object.keys(positionTypes)[0] as PositionType,
+  setPosition: (position: PositionType) => set({ position }),
+  timeUnit: unitTypes.seconds,
+  setTimeUnit: (unit: UnitType) => set({ timeUnit: unit }),
   theme: 'light',
   setTheme: (theme) => set(() => ({ theme })),
 }));

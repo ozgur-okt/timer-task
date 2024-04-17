@@ -21,6 +21,10 @@ function SideBar() {
   const setUnitLabel = useUnitLabelStore((state) => state.setUnitLabel);
   const display = useUnitLabelStore((state) => state.display);
   const toggleDisplay = useUnitLabelStore((state) => state.toggleDisplay);
+  const theme = useTimerStore((state) => state.theme);
+  const setTheme = useTimerStore((state) => state.setTheme);
+
+ 
 
   const handleLabelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLabel(event.target.value);
@@ -53,9 +57,19 @@ function SideBar() {
   ) => {
     toggleDisplay(unit);
   };
+  const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTheme(event.target.value as 'dark' | 'light' | 'colorful');
+  };
 
   return (
     <div className="w-64 h-full bg-gray-200 p-4">
+       <div className="mt-4">
+        <select value={theme} onChange={handleThemeChange}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="colorful">Colorful</option>
+        </select>
+      </div>
        <ToggleButton />
       <input type="text" value={header} onChange={handleHeaderChange} className="mb-4 w-full" placeholder="Timer Header" />
       <div className="mt-4">

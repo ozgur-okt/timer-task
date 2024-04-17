@@ -13,6 +13,7 @@ function Timer() {
   const header = useTimerStore((state) => state.header);
   const isCloseIconVisible = useTimerStore((state) => state.isCloseIconVisible);
   const timeUnit = useTimerStore((state) => state.timeUnit);
+  const theme = useTimerStore((state) => state.theme);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,9 +42,17 @@ function Timer() {
   if (!isOpen) {
     return null;
   }
+  let bgColor;
+  if (theme === 'dark') {
+    bgColor = '#000';
+  } else if (theme === 'light') {
+    bgColor = '#FFF';
+  } else if (theme === 'colorful') {
+    bgColor = '#248277';
+  }
 
   return (
-    <div>
+    <div style={{ backgroundColor: bgColor }}>
       {isCloseIconVisible && <button onClick={() => setIsOpen(false)}><CloseIcon /></button>}
       <h5>{header}</h5>
       <div className='flex'>

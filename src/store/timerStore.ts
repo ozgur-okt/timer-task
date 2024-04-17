@@ -14,6 +14,8 @@ type TimerState = {
   setPosition: (position: 'top-sticky' | 'top-static' | 'bottom-static') => void;
   timeUnit: 'days' | 'hours' | 'minutes' | 'seconds';
   setTimeUnit: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => void;
+  theme: 'dark' | 'light' | 'colorful';
+  setTheme: (theme: 'dark' | 'light' | 'colorful') => void;
 };
 
 export const useTimerStore = create<TimerState>((set) => ({
@@ -30,4 +32,6 @@ export const useTimerStore = create<TimerState>((set) => ({
   setPosition: (position: 'top-sticky' | 'top-static' | 'bottom-static') => set({ position }),
   timeUnit: 'seconds',
   setTimeUnit: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => set({ timeUnit: unit }),
+  theme: 'light',
+  setTheme: (theme) => set(() => ({ theme })),
 }));

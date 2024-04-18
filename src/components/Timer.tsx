@@ -46,7 +46,7 @@ function Timer() {
   
 
   return (
-    <div className='flex items-center justify-between w-[100vw] px-10 border-1 border-red-800' style={{ backgroundColor: getColor(theme, 'container') }}>
+    <div className='flex items-center justify-between px-10' style={{ backgroundColor: getColor(theme, 'container'), position:"static", marginTop:"auto" }}>
       <h5 className='font-extrabold' style={{color:getColor(theme, 'text')}}>{header}</h5>
       <div className='flex gap-2'>
         <Unit unit="days" value={days} />

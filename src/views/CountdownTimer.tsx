@@ -22,7 +22,9 @@ function CountdownTimer() {
 
   return (
     <div className='flex justify-between'>
+      <div className='h-[100vh] overflow-auto scrollbar-hide'>
         <SideBar />
+      </div>
       <div className="p-4 bg-gray-200 w-[73%]" >
         <Timer />
       </div>

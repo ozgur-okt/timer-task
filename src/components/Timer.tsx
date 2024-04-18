@@ -46,7 +46,10 @@ function Timer() {
   
 
   return (
-    <div className='flex items-center justify-between px-10' style={{ backgroundColor: getColor(theme, 'container'), position:"static", marginTop:"auto" }}>
+    <div 
+    className='flex items-center justify-between px-10 h-20' 
+    style={{ backgroundColor: getColor(theme, 'container'), position:"static", marginTop:"auto" }}
+    >
       <h5 className='font-extrabold' style={{color:getColor(theme, 'text')}}>{header}</h5>
       <div className='flex gap-2'>
         <Unit unit="days" value={days} />
@@ -57,9 +60,9 @@ function Timer() {
       <div>
         <CustomButton />
       </div>
-      <div>
+      
         {isCloseIconVisible && <button onClick={() => setIsOpen(false)}><CloseIcon color={getColor(theme, 'text')} /></button>}
-      </div>
+      
     </div>
   );
 }

@@ -19,20 +19,8 @@ function DisplayUnit({ unit }: DisplayUnitProps) {
 
   return (
     <div className='inline mr-2'>
-      <input className='align-middle mt-[-2px] mr-1' type="checkbox" checked={display[unit]} onChange={handleDisplayChange(unit)} />
+      <input className='align-middle mt-[-2px] mr-1 accent-black' type="checkbox" checked={display[unit]} onChange={handleDisplayChange(unit)} />
       <label className='text-xs'>{capitalize(unit)}</label>
-      {/* <label>
-          <input type="checkbox" checked={display.hours} onChange={handleDisplayChange('hours')} />
-          Hours
-        </label>
-        <label>
-          <input type="checkbox" checked={display.minutes} onChange={handleDisplayChange('minutes')} />
-          Minutes
-        </label>
-        <label>
-          <input type="checkbox" checked={display.seconds} onChange={handleDisplayChange('seconds')} />
-          Seconds
-        </label> */}
     </div>
   )
 }

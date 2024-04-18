@@ -21,9 +21,9 @@ function CountdownTimer() {
   // }
 
   return (
-    <div className='flex'>
-      <SideBar />
-      <div className="p-4 bg-gray-200 w-[70%]" >
+    <div className='flex justify-between'>
+        <SideBar />
+      <div className="p-4 bg-gray-200 w-[73%]" >
         <Timer />
       </div>
     </div>

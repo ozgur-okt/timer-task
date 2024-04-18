@@ -30,7 +30,7 @@ function SideBar() {
 
 
   return (
-    <div className="w-[30%] h-full p-4">
+    <div className="pl-5 pb-10">
       <Title title='Timer Settings' />
       <Theme />
       <ToggleButton />

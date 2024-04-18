@@ -14,7 +14,7 @@ function Theme() {
   return (
     <div>
       <Subtitle subtitle='Timer Style' />
-      <select className='text-xs px-3 py-1 w-15 text-black-800 rounded-md bg-gray-200' value={theme} onChange={handleThemeChange}>
+      <select className='text-xs px-3 py-1 w-26 text-black-800 rounded-md bg-gray-200' value={theme} onChange={handleThemeChange}>
         {Object.values(themeTypes).map((theme) => (
           <option key={theme} value={theme}>{capitalize(theme)}</option>
         ))}

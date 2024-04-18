@@ -21,7 +21,7 @@ function Unit({ unit, value }: UnitProps) {
   const digits = value.toString().padStart(2, '0').split('');
 
   return (
-    <div className='border-1 border-red-700 border flex flex-col items-center'>
+    <div className='flex flex-col items-center'>
       <div className='flex'>
         {digits.map((digit, index) => (
           <div key={index} className='mx-[1px] w-5 h-8 flex justify-center items-center font-bold rounded' style={{ backgroundColor: getColor(theme, 'digit'), color: getColor(theme, 'text') }}>

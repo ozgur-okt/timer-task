@@ -4,6 +4,7 @@ import CustomButton from '../elements/CustomButton';
 import CloseIcon from '../assets/CloseIcon';
 import Unit from '../elements/Unit';
 import { getColor } from '../utils/getColor';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 
 function Timer() {
@@ -15,14 +16,20 @@ function Timer() {
   const isCloseIconVisible = useTimerStore((state) => state.isCloseIconVisible);
   const timeUnit = useTimerStore((state) => state.timeUnit);
   const theme = useTimerStore((state) => state.theme);
+  const [isExploding, setIsExploding] = React.useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime();
+      if (time <= 0) {
+        clearInterval(interval);
+        setIsExploding(true);
+      } else {
+        setTime();
+      }
     }, 1000);
-
+  
     return () => clearInterval(interval);
-  }, [setTime]);
+  }, [setTime, time]);
 
   const seconds = time % 60;
   const minutes = Math.floor(time / 60) % 60;
@@ -48,8 +55,9 @@ function Timer() {
   return (
     <div 
     className='flex items-center justify-between px-10 h-20' 
-    style={{ backgroundColor: getColor(theme, 'container'), position:"static", marginTop:"auto" }}
+    style={{ backgroundColor: getColor(theme, 'container')}}
     >
+      
       <h5 className='font-extrabold' style={{color:getColor(theme, 'text')}}>{header}</h5>
       <div className='flex gap-2'>
         <Unit unit="days" value={days} />
@@ -58,6 +66,7 @@ function Timer() {
         <Unit unit="seconds" value={seconds} />
       </div>
       <div>
+      {isExploding && <ConfettiExplosion />}
         <CustomButton />
       </div>
       

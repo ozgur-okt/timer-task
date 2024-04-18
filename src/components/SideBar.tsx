@@ -14,20 +14,9 @@ import RedirectButton from '../elements/RedirectButton';
 import Title from '../elements/Title';
 import TimerTitle from '../elements/TimerTitle';
 import Subtitle from '../elements/Subtitle';
+import Precision from '../elements/Precision';
 
 function SideBar() {
-
-  
-
-  const timeUnit = useTimerStore((state) => state.timeUnit);
-  const setTimeUnit = useTimerStore((state) => state.setTimeUnit);
-
-  
-
-  const handleTimeUnitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTimeUnit(event.target.value as 'days' | 'hours' | 'minutes' | 'seconds');
-  };
-
 
   return (
     <div className="pl-5 pb-10">
@@ -35,24 +24,10 @@ function SideBar() {
       <Theme />
       <ToggleButton />
       <TimerTitle />
-      {/* <div>
-        <label>
-          <input type="radio" value="days" checked={timeUnit === 'days'} onChange={handleTimeUnitChange} />
-          Days
-        </label>
-        <label>
-          <input type="radio" value="hours" checked={timeUnit === 'hours'} onChange={handleTimeUnitChange} />
-          Hours
-        </label>
-        <label>
-          <input type="radio" value="minutes" checked={timeUnit === 'minutes'} onChange={handleTimeUnitChange} />
-          Minutes
-        </label>
-        <label>
-          <input type="radio" value="seconds" checked={timeUnit === 'seconds'} onChange={handleTimeUnitChange} />
-          Seconds
-        </label>
-      </div>  */}
+      <Subtitle subtitle='Set the time in' />
+      {Object.values(unitTypes).map((unit) => (
+        <Precision key={unit} timeUnitProp={unit} />
+      ))}
       <ChangeCount />
       <Subtitle subtitle='Positioning' />
       {Object.keys(positionTypes).map((position) => (

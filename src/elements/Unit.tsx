@@ -3,6 +3,7 @@ import { useUnitLabelStore } from '../store/unitLabelStore';
 import { UnitType } from '../types';
 import { useTimerStore } from '../store/timerStore';
 import { getColor } from '../utils/getColor';
+import { checkLength } from '../utils/checkLength';
 
 type UnitProps = {
   unit: UnitType;
@@ -29,7 +30,7 @@ function Unit({ unit, value }: UnitProps) {
           </div>
         ))}
       </div>
-      <p className='text-[9px] font-semibold' style={{color: getColor(theme, 'text')}}>{customLabel}</p>
+      <p className='text-[9px] font-semibold' style={{color: getColor(theme, 'text')}}>{checkLength(7,customLabel)}</p>
     </div>
   );
 }

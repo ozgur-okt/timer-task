@@ -14,7 +14,7 @@ function ChangeCount() {
       <Subtitle subtitle='Remaining Time Period' />
       <input type="text" className='border-2 border-gray rounded-lg text-xs px-3 py-1 w-[64px]' value={countdownStartHours} onChange={handleStartHoursChange} />
       <label className='text-xs text-gray-500 ml-1'>hours</label>
-      <button className=' bg-blue-500 rounded-md text-xs px-4 py-1 ml-2 text-white bg-black' onClick={() => setStartHours(countdownStartHours)}>Set</button>
+      <button className='hover:bg-white hover:text-black hover:border-2 rounded-md text-xs px-4 py-1 ml-2 text-white bg-black' onClick={() => setStartHours(countdownStartHours)}>Set</button>
     </div>
   )
 }

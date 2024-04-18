@@ -5,6 +5,8 @@ import CloseIcon from '../assets/CloseIcon';
 import Unit from '../elements/Unit';
 import { getColor } from '../utils/getColor';
 import ConfettiExplosion from 'react-confetti-explosion';
+import PrecisedUnits from '../elements/PrecisedUnits';
+import { checkLength } from '../utils/checkLength';
 
 
 function Timer() {
@@ -14,7 +16,6 @@ function Timer() {
   const setTime = useTimerStore((state) => state.setTime);
   const header = useTimerStore((state) => state.header);
   const isCloseIconVisible = useTimerStore((state) => state.isCloseIconVisible);
-  const timeUnit = useTimerStore((state) => state.timeUnit);
   const theme = useTimerStore((state) => state.theme);
   const [isExploding, setIsExploding] = React.useState(false);
 
@@ -24,54 +25,29 @@ function Timer() {
         clearInterval(interval);
         setIsExploding(true);
       } else {
+        setIsExploding(false);
         setTime();
       }
     }, 1000);
-  
     return () => clearInterval(interval);
   }, [setTime, time]);
-
-  const seconds = time % 60;
-  const minutes = Math.floor(time / 60) % 60;
-  const hours = Math.floor(time / 3600) % 24;
-  const days = Math.floor(time / (3600 * 24));
-
-  // let timeDisplay = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  // if (timeUnit === 'minutes') {
-  //   timeDisplay = `${days}d ${hours}h ${minutes}m`;
-  // }
-  // if (timeUnit === 'hours') {
-  //   timeDisplay = `${days}d ${hours}h`;
-  // }
-  // if (timeUnit === 'days') {
-  //   timeDisplay = `${days}d`;
-  // }
 
   if (!isOpen) {
     return null;
   }
-  
 
   return (
-    <div 
-    className='flex items-center justify-between px-10 h-20' 
-    style={{ backgroundColor: getColor(theme, 'container')}}
+    <div
+      className='flex items-center justify-between px-10 h-20 shadow'
+      style={{ backgroundColor: getColor(theme, 'container') }}
     >
-      
-      <h5 className='font-extrabold' style={{color:getColor(theme, 'text')}}>{header}</h5>
-      <div className='flex gap-2'>
-        <Unit unit="days" value={days} />
-        <Unit unit="hours" value={hours} />
-        <Unit unit="minutes" value={minutes} />
-        <Unit unit="seconds" value={seconds} />
-      </div>
+      <h5 className='font-extrabold' style={{ color: getColor(theme, 'text') }}>{checkLength(20, header)}</h5>
+      <PrecisedUnits time={time} />
       <div>
-      {isExploding && <ConfettiExplosion />}
+        {isExploding && <ConfettiExplosion />}
         <CustomButton />
       </div>
-      
-        {isCloseIconVisible && <button onClick={() => setIsOpen(false)}><CloseIcon color={getColor(theme, 'text')} /></button>}
-      
+      {isCloseIconVisible && <button className='hover:shadow-md rounded-full' onClick={() => setIsOpen(false)}><CloseIcon color={getColor(theme, 'text')} /></button>}
     </div>
   );
 }

@@ -15,7 +15,7 @@ export const positionTypes: Record<PositionType, PositionType> = {
   bottomStatic: 'bottomStatic'
 }
 
-export const positionTypesNamingMap: Record<PositionType, String> = {
+export const positionTypesNamingMap: Record<PositionType, string> = {
   topSticky: 'Top Sticky',
   topStatic: 'Top Static',
   bottomStatic: 'Bottom Static'

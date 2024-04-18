@@ -1,6 +1,7 @@
 import React from 'react'
 import { useUnitLabelStore } from '../store/unitLabelStore';
 import { UnitType } from '../types';
+import { capitalize } from '../utils/capitalize';
 
 type DisplayUnitProps = {
   unit: UnitType;
@@ -9,7 +10,7 @@ type DisplayUnitProps = {
 function DisplayUnit({ unit }: DisplayUnitProps) {
   const display = useUnitLabelStore((state) => state.display);
   const toggleDisplay = useUnitLabelStore((state) => state.toggleDisplay);
-  
+
   const handleDisplayChange = (unit: UnitType) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -17,12 +18,10 @@ function DisplayUnit({ unit }: DisplayUnitProps) {
   };
 
   return (
-    <div>
-        <label>
-          <input type="checkbox" checked={display[unit]} onChange={handleDisplayChange(unit)} />
-          {unit.charAt(0).toUpperCase() + unit.slice(1)}
-        </label>
-        {/* <label>
+    <div className='inline mr-2'>
+      <input className='align-middle mt-[-2px] mr-1' type="checkbox" checked={display[unit]} onChange={handleDisplayChange(unit)} />
+      <label className='text-xs'>{capitalize(unit)}</label>
+      {/* <label>
           <input type="checkbox" checked={display.hours} onChange={handleDisplayChange('hours')} />
           Hours
         </label>
@@ -34,7 +33,7 @@ function DisplayUnit({ unit }: DisplayUnitProps) {
           <input type="checkbox" checked={display.seconds} onChange={handleDisplayChange('seconds')} />
           Seconds
         </label> */}
-      </div>
+    </div>
   )
 }
 

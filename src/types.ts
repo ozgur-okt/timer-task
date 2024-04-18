@@ -9,7 +9,7 @@ export const unitTypes: Record<UnitType, UnitType> = {
 
 export type PositionType = 'topSticky' | 'topStatic' | 'bottomStatic';
 
-export const positionTypes: Record<PositionType, String> = {
+export const positionTypes: Record<PositionType, PositionType> = {
   topSticky: 'topSticky',
   topStatic: 'topStatic',
   bottomStatic: 'bottomStatic'
@@ -21,3 +21,10 @@ export const positionTypesNamingMap: Record<PositionType, String> = {
   bottomStatic: 'Bottom Static'
 }
 
+export type ThemeType = 'dark' | 'light' | 'colorful';
+
+export const themeTypes: Record<ThemeType, ThemeType> = {
+  dark: 'dark',
+  light: 'light',
+  colorful: 'colorful'
+}

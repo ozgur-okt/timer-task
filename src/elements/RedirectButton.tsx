@@ -1,5 +1,7 @@
 import React from 'react'
 import { useButtonStore } from '../store/buttonStore';
+import Subtitle from './Subtitle';
+import TextInput from './TextInput';
 
 function RedirectButton() {
   const label = useButtonStore((state) => state.label);
@@ -17,8 +19,10 @@ function RedirectButton() {
 
   return (
     <div>
-      <input type="text" value={label} onChange={handleLabelChange} placeholder="Button Label" />
-      <input type="text" value={link} onChange={handleLinkChange} placeholder="Button Link" />
+      <Subtitle subtitle='Button Button' />
+      <TextInput value={label} setValue={handleLabelChange} />
+      <Subtitle subtitle='Button Link' />
+      <TextInput value={link} setValue={handleLinkChange} />
     </div>
   )
 }

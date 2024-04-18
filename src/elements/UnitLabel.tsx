@@ -1,6 +1,9 @@
 import React from 'react'
 import { useUnitLabelStore } from '../store/unitLabelStore';
 import { UnitType } from '../types';
+import Subtitle from './Subtitle';
+import TextInput from './TextInput';
+import { capitalize } from '../utils/capitalize';
 
 type UnitLabelProps = {
   unit: UnitType;
@@ -18,10 +21,8 @@ function UnitLabel({ unit }: UnitLabelProps) {
 
   return (
     <div>
-      <input type="text" value={labels[unit]} onChange={handleUnitLabelChange(unit)}  />
-      {/* <input type="text" value={labels.hours} onChange={handleUnitLabelChange('hours')} placeholder="Hours Label" />
-      <input type="text" value={labels.minutes} onChange={handleUnitLabelChange('minutes')} placeholder="Minutes Label" />
-      <input type="text" value={labels.seconds} onChange={handleUnitLabelChange('seconds')} placeholder="Seconds Label" /> */}
+      <Subtitle subtitle={`${capitalize(unit)} Label`} />
+      <TextInput value={labels[unit]} setValue={handleUnitLabelChange(unit)} />
     </div>
   )
 }

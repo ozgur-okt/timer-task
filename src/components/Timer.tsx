@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useTimerStore } from '../store/timerStore';
-import CustomButton from './CustomButton';
+import CustomButton from '../elements/CustomButton';
 import CloseIcon from '../assets/CloseIcon';
-import Unit from './Unit';
+import Unit from '../elements/Unit';
+import { getColor } from '../utils/getColor';
 
 
 function Timer() {
@@ -42,26 +43,23 @@ function Timer() {
   if (!isOpen) {
     return null;
   }
-  let bgColor;
-  if (theme === 'dark') {
-    bgColor = '#000';
-  } else if (theme === 'light') {
-    bgColor = '#FFF';
-  } else if (theme === 'colorful') {
-    bgColor = '#248277';
-  }
+  
 
   return (
-    <div style={{ backgroundColor: bgColor }}>
-      {isCloseIconVisible && <button onClick={() => setIsOpen(false)}><CloseIcon /></button>}
-      <h5>{header}</h5>
-      <div className='flex'>
+    <div className='flex items-center justify-between w-[100vw] px-10 border-1 border-red-800' style={{ backgroundColor: getColor(theme, 'container') }}>
+      <h5 className='font-extrabold' style={{color:getColor(theme, 'text')}}>{header}</h5>
+      <div className='flex gap-2'>
         <Unit unit="days" value={days} />
         <Unit unit="hours" value={hours} />
         <Unit unit="minutes" value={minutes} />
         <Unit unit="seconds" value={seconds} />
       </div>
-      <CustomButton />
+      <div>
+        <CustomButton />
+      </div>
+      <div>
+        {isCloseIconVisible && <button onClick={() => setIsOpen(false)}><CloseIcon color={getColor(theme, 'text')} /></button>}
+      </div>
     </div>
   );
 }

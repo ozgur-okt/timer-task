@@ -23,7 +23,7 @@ function CountdownTimer() {
   return (
     <div className='flex h-[100vh]'>
       <SideBar />
-      <div className={`${timerPositionClass}`}>
+      <div className={`${timerPositionClass} p-4 bg-gray-200` }>
         <Timer />
       </div>
     </div>

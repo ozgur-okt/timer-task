@@ -1,28 +1,28 @@
 import React from 'react';
 import { useButtonStore } from '../store/buttonStore';
 import { useTimerStore } from '../store/timerStore';
-import ToggleButton from './ToggleButton';
+import ToggleButton from '../elements/ToggleButton';
 import { useUnitLabelStore } from '../store/unitLabelStore';
-import Theme from './Theme';
-import Position from './Position';
-import ChangeCount from './ChangeCount';
-import DisplayUnit from './DisplayUnit';
-import Unit from './Unit';
-import UnitLabel from './UnitLabel';
+import Theme from '../elements/Theme';
+import Position from '../elements/Position';
+import ChangeCount from '../elements/ChangeCount';
+import DisplayUnit from '../elements/DisplayUnit';
+import Unit from '../elements/Unit';
+import UnitLabel from '../elements/UnitLabel';
 import { PositionType, positionTypes, unitTypes } from '../types';
-import RedirectButton from './RedirectButton';
+import RedirectButton from '../elements/RedirectButton';
+import Title from '../elements/Title';
+import TimerTitle from '../elements/TimerTitle';
+import Subtitle from '../elements/Subtitle';
 
 function SideBar() {
 
-  const header = useTimerStore((state) => state.header);
-  const setHeader = useTimerStore((state) => state.setHeader);
+  
 
   const timeUnit = useTimerStore((state) => state.timeUnit);
   const setTimeUnit = useTimerStore((state) => state.setTimeUnit);
 
-  const handleHeaderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setHeader(event.target.value);
-  };
+  
 
   const handleTimeUnitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTimeUnit(event.target.value as 'days' | 'hours' | 'minutes' | 'seconds');
@@ -30,11 +30,12 @@ function SideBar() {
 
 
   return (
-    <div className="w-64 h-full bg-gray-200 p-4">
+    <div className="border-2 w-80 h-full p-4">
+      <Title title='Timer Settings' />
       <Theme />
       <ToggleButton />
-      <input type="text" value={header} onChange={handleHeaderChange} placeholder="Timer Header" />
-      <div>
+      <TimerTitle />
+      {/* <div>
         <label>
           <input type="radio" value="days" checked={timeUnit === 'days'} onChange={handleTimeUnitChange} />
           Days
@@ -51,17 +52,21 @@ function SideBar() {
           <input type="radio" value="seconds" checked={timeUnit === 'seconds'} onChange={handleTimeUnitChange} />
           Seconds
         </label>
-      </div>
+      </div>  */}
       <ChangeCount />
+      <Subtitle subtitle='Positioning' />
       {Object.keys(positionTypes).map((position) => (
         <Position key={position} positionProp={position as PositionType} />
       ))}
+      <Title title='Counters and Labels' />
+      <Subtitle subtitle='Display the count in' />
       {Object.values(unitTypes).map((unit) => (
         <DisplayUnit key={unit} unit={unit} />
       ))}
       {Object.values(unitTypes).map((unit) => (
         <UnitLabel key={unit} unit={unit} />
       ))}
+      <Title title='Button Settings' />
       <RedirectButton />
     </div>
   );

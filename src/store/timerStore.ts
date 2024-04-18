@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import { PositionType, UnitType, positionTypes, unitTypes } from '../types';
+import { PositionType, ThemeType, UnitType, positionTypes, themeTypes, unitTypes } from '../types';
 
 type TimerState = {
   time: number;
@@ -15,8 +15,8 @@ type TimerState = {
   setPosition: (position: PositionType) => void;
   timeUnit: UnitType;
   setTimeUnit: (unit: UnitType) => void;
-  theme: 'dark' | 'light' | 'colorful';
-  setTheme: (theme: 'dark' | 'light' | 'colorful') => void;
+  theme: ThemeType;
+  setTheme: (theme: ThemeType) => void;
 };
 
 export const useTimerStore = create<TimerState>((set) => ({
@@ -33,6 +33,6 @@ export const useTimerStore = create<TimerState>((set) => ({
   setPosition: (position: PositionType) => set({ position }),
   timeUnit: unitTypes.seconds,
   setTimeUnit: (unit: UnitType) => set({ timeUnit: unit }),
-  theme: 'light',
+  theme: themeTypes.light,
   setTheme: (theme) => set(() => ({ theme })),
 }));

@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { UnitType } from '../types'
 
 type UnitLabelState = {
   labels: {
@@ -13,8 +14,8 @@ type UnitLabelState = {
     minutes: boolean
     seconds: boolean
   }
-  setUnitLabel: (unit: 'days' | 'hours' | 'minutes' | 'seconds', label: string) => void
-  toggleDisplay: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => void
+  setUnitLabel: (unit: UnitType, label: string) => void
+  toggleDisplay: (unit: UnitType) => void
 }
 
 export const useUnitLabelStore = create<UnitLabelState>((set) => ({

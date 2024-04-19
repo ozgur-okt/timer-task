@@ -7,6 +7,7 @@ import { getColor } from '../utils/getColor';
 import ConfettiExplosion from 'react-confetti-explosion';
 import PrecisedUnits from '../elements/PrecisedUnits';
 import { checkLength } from '../utils/checkLength';
+import { getTimerPosition } from '../utils/getTimerPosition';
 
 
 function Timer() {
@@ -18,6 +19,7 @@ function Timer() {
   const isCloseIconVisible = useTimerStore((state) => state.isCloseIconVisible);
   const theme = useTimerStore((state) => state.theme);
   const [isExploding, setIsExploding] = React.useState(false);
+  const position = useTimerStore((state) => state.position);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,7 +40,7 @@ function Timer() {
 
   return (
     <div
-      className='flex items-center justify-between px-10 h-20 shadow'
+      className={`flex items-center justify-between px-10 h-20 shadow w-[48rem] ${getTimerPosition(position)}`}
       style={{ backgroundColor: getColor(theme, 'container') }}
     >
       <h5 className='font-extrabold' style={{ color: getColor(theme, 'text') }}>{checkLength(20, header)}</h5>

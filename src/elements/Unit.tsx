@@ -1,25 +1,25 @@
-import React from 'react';
-import { useUnitLabelStore } from '../store/unitLabelStore';
-import { UnitType } from '../types';
-import { useTimerStore } from '../store/timerStore';
-import { getColor } from '../utils/getColor';
-import { checkLength } from '../utils/checkLength';
+import React from 'react'
+import { useUnitLabelStore } from '../stores/unitLabelStore'
+import { UnitType } from '../types'
+import { useTimerStore } from '../stores/timerStore'
+import { getColor } from '../utils/getColor'
+import { checkLength } from '../utils/checkLength'
 
 type UnitProps = {
-  unit: UnitType;
-  value: number;
-};
+  unit: UnitType
+  value: number
+}
 
 function Unit({ unit, value }: UnitProps) {
-  const customLabel = useUnitLabelStore((state) => state.labels[unit]);
-  const display = useUnitLabelStore((state) => state.display[unit]);
-  const theme = useTimerStore((state) => state.theme);
+  const customLabel = useUnitLabelStore((state) => state.labels[unit])
+  const display = useUnitLabelStore((state) => state.display[unit])
+  const theme = useTimerStore((state) => state.theme)
 
   if (!display) {
-    return null;
+    return null
   }
 
-  const digits = value.toString().padStart(2, '0').split('');
+  const digits = value.toString().padStart(2, '0').split('')
 
   return (
     <div className='flex flex-col items-center'>
@@ -30,9 +30,9 @@ function Unit({ unit, value }: UnitProps) {
           </div>
         ))}
       </div>
-      <p className='text-[9px] font-semibold' style={{color: getColor(theme, 'text')}}>{checkLength(7,customLabel)}</p>
+      <p className='text-[9px] font-semibold' style={{ color: getColor(theme, 'text') }}>{checkLength(7, customLabel)}</p>
     </div>
-  );
+  )
 }
 
-export default Unit;
+export default Unit

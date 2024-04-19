@@ -1,20 +1,16 @@
-import React from 'react';
-import { useButtonStore } from '../store/buttonStore';
-import { useTimerStore } from '../store/timerStore';
-import ToggleButton from '../elements/ToggleButton';
-import { useUnitLabelStore } from '../store/unitLabelStore';
-import Theme from '../elements/Theme';
-import Position from '../elements/Position';
-import ChangeCount from '../elements/ChangeCount';
-import DisplayUnit from '../elements/DisplayUnit';
-import Unit from '../elements/Unit';
-import UnitLabel from '../elements/UnitLabel';
-import { PositionType, positionTypes, unitTypes } from '../types';
-import RedirectButton from '../elements/RedirectButton';
-import Title from '../elements/Title';
-import TimerTitle from '../elements/TimerTitle';
-import Subtitle from '../elements/Subtitle';
-import Precision from '../elements/Precision';
+import React from 'react'
+import ToggleButton from '../elements/ToggleButton'
+import Theme from '../elements/Theme'
+import Position from '../elements/Position'
+import ChangeCount from '../elements/ChangeCount'
+import DisplayUnit from '../elements/DisplayUnit'
+import UnitLabel from '../elements/UnitLabel'
+import { PositionType, positionTypes, unitTypes } from '../types'
+import RedirectButton from '../elements/RedirectButton'
+import Title from '../elements/Title'
+import TimerTitle from '../elements/TimerTitle'
+import Subtitle from '../elements/Subtitle'
+import Precision from '../elements/Precision'
 
 function SideBar() {
 
@@ -44,7 +40,7 @@ function SideBar() {
       <Title title='Button Settings' />
       <RedirectButton />
     </div>
-  );
+  )
 }
 
-export default SideBar;
+export default SideBar

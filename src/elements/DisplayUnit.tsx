@@ -1,21 +1,22 @@
 import React from 'react'
-import { useUnitLabelStore } from '../store/unitLabelStore';
-import { UnitType } from '../types';
-import { capitalize } from '../utils/capitalize';
+import { useUnitLabelStore } from '../stores/unitLabelStore'
+import { UnitType } from '../types'
+import { capitalize } from '../utils/capitalize'
 
 type DisplayUnitProps = {
-  unit: UnitType;
+  unit: UnitType
 }
 
 function DisplayUnit({ unit }: DisplayUnitProps) {
-  const display = useUnitLabelStore((state) => state.display);
-  const toggleDisplay = useUnitLabelStore((state) => state.toggleDisplay);
+  const display = useUnitLabelStore((state) => state.display)
+  const toggleDisplay = useUnitLabelStore((state) => state.toggleDisplay)
 
   const handleDisplayChange = (unit: UnitType) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    toggleDisplay(unit);
-  };
+    console.log(event)
+    toggleDisplay(unit)
+  }
 
   return (
     <div className='inline mr-2'>

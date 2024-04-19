@@ -1,12 +1,12 @@
-import React from 'react';
-import CountdownTimer from './views/CountdownTimer';
+import React from 'react'
+import CountdownTimer from './views/CountdownTimer'
 
 function App() {
   return (
     <>
-    <CountdownTimer />
+      <CountdownTimer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

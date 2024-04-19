@@ -1,14 +1,14 @@
 import React from 'react'
-import { useTimerStore } from '../store/timerStore';
-import Subtitle from './Subtitle';
+import { useTimerStore } from '../stores/timerStore'
+import Subtitle from './Subtitle'
 
 function ChangeCount() {
-  const setStartHours = useTimerStore((state) => state.setStartHours);
-  const [countdownStartHours, setCountdownStartHours] = React.useState(0);
+  const setStartHours = useTimerStore((state) => state.setStartHours)
+  const [countdownStartHours, setCountdownStartHours] = React.useState(0)
 
   const handleStartHoursChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCountdownStartHours(Number(event.target.value));
-  };
+    setCountdownStartHours(Number(event.target.value))
+  }
   return (
     <div>
       <Subtitle subtitle='Remaining Time Period' />

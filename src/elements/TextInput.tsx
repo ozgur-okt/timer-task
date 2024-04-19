@@ -1,8 +1,8 @@
 import React from 'react'
 
 type TextInputProps = {
-  value: string;
-  setValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string
+  setValue: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 function TextInput({ value, setValue }: TextInputProps) {

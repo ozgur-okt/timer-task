@@ -1,11 +1,10 @@
 import React from 'react'
-import { capitalize } from '../utils/capitalize';
 
 type RadioInputProps = {
-  value: string;
-  checked: boolean;
-  label: string;
-  setValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string
+  checked: boolean
+  label: string
+  setValue: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 function RadioInput({ value, checked, label, setValue }: RadioInputProps) {

@@ -1,13 +1,13 @@
-import React from 'react';
-import { useButtonStore } from '../store/buttonStore';
-import { getColor } from '../utils/getColor';
-import { useTimerStore } from '../store/timerStore';
-import { checkLength } from '../utils/checkLength';
+import React from 'react'
+import { useButtonStore } from '../stores/buttonStore'
+import { getColor } from '../utils/getColor'
+import { useTimerStore } from '../stores/timerStore'
+import { checkLength } from '../utils/checkLength'
 
 function CustomButton() {
-  const label = useButtonStore((state) => state.label);
-  const link = useButtonStore((state) => state.link);
-  const theme = useTimerStore((state) => state.theme);
+  const label = useButtonStore((state) => state.label)
+  const link = useButtonStore((state) => state.link)
+  const theme = useTimerStore((state) => state.theme)
 
   return (
     <a
@@ -19,7 +19,7 @@ function CustomButton() {
     >
       {checkLength(10, label)}
     </a>
-  );
+  )
 }
 
-export default CustomButton;
+export default CustomButton

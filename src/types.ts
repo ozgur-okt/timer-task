@@ -1,4 +1,4 @@
-export type UnitType = 'days' | 'hours' | 'minutes' | 'seconds';
+export type UnitType = 'days' | 'hours' | 'minutes' | 'seconds'
 
 export const unitTypes: Record<UnitType, UnitType> = {
   days: 'days',
@@ -7,7 +7,7 @@ export const unitTypes: Record<UnitType, UnitType> = {
   seconds: 'seconds'
 }
 
-export type PositionType = 'topSticky' | 'topStatic' | 'bottomStatic';
+export type PositionType = 'topSticky' | 'topStatic' | 'bottomStatic'
 
 export const positionTypes: Record<PositionType, PositionType> = {
   topSticky: 'topSticky',
@@ -21,7 +21,7 @@ export const positionTypesNamingMap: Record<PositionType, string> = {
   bottomStatic: 'Bottom Static'
 }
 
-export type ThemeType = 'dark' | 'light' | 'colorful';
+export type ThemeType = 'dark' | 'light' | 'colorful'
 
 export const themeTypes: Record<ThemeType, ThemeType> = {
   dark: 'dark',

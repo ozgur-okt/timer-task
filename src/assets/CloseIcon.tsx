@@ -1,6 +1,8 @@
+import React from 'react'
+
 type IconProps = {
-  color: string;
-};
+  color: string
+}
 
 function CloseIcon({ color }: IconProps) {
   return (

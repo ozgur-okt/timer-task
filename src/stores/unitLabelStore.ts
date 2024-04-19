@@ -1,21 +1,21 @@
-import {create} from 'zustand';
+import { create } from 'zustand'
 
 type UnitLabelState = {
   labels: {
-    days: string;
-    hours: string;
-    minutes: string;
-    seconds: string;
-  };
+    days: string
+    hours: string
+    minutes: string
+    seconds: string
+  }
   display: {
-    days: boolean;
-    hours: boolean;
-    minutes: boolean;
-    seconds: boolean;
-  };
-  setUnitLabel: (unit: 'days' | 'hours' | 'minutes' | 'seconds', label: string) => void;
-  toggleDisplay: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => void;
-};
+    days: boolean
+    hours: boolean
+    minutes: boolean
+    seconds: boolean
+  }
+  setUnitLabel: (unit: 'days' | 'hours' | 'minutes' | 'seconds', label: string) => void
+  toggleDisplay: (unit: 'days' | 'hours' | 'minutes' | 'seconds') => void
+}
 
 export const useUnitLabelStore = create<UnitLabelState>((set) => ({
   labels: {
@@ -32,4 +32,4 @@ export const useUnitLabelStore = create<UnitLabelState>((set) => ({
   },
   setUnitLabel: (unit, label) => set((state) => ({ labels: { ...state.labels, [unit]: label } })),
   toggleDisplay: (unit) => set((state) => ({ display: { ...state.display, [unit]: !state.display[unit] } })),
-}));
+}))

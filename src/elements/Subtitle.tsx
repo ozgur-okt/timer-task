@@ -1,7 +1,7 @@
 import React from 'react'
 
 type SubtitleProps = {
-  subtitle: string;
+  subtitle: string
 }
 
 function Subtitle({ subtitle }: SubtitleProps) {

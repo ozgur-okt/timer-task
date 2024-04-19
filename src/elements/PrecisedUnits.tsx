@@ -1,19 +1,19 @@
 import React from 'react'
 import Unit from './Unit'
-import { useTimerStore } from '../store/timerStore';
-import { unitTypes } from '../types';
+import { useTimerStore } from '../stores/timerStore'
+import { unitTypes } from '../types'
 
 type PrecisedUnitsProps = {
-  time: number;
+  time: number
 }
 
 function PrecisedUnits({ time }: PrecisedUnitsProps) {
-  const timeUnit = useTimerStore((state) => state.timeUnit);
+  const timeUnit = useTimerStore((state) => state.timeUnit)
 
-  const seconds = time % 60;
-  const minutes = Math.floor(time / 60) % 60;
-  const hours = Math.floor(time / 3600) % 24;
-  const days = Math.floor(time / (3600 * 24));
+  const seconds = time % 60
+  const minutes = Math.floor(time / 60) % 60
+  const hours = Math.floor(time / 3600) % 24
+  const days = Math.floor(time / (3600 * 24))
 
   if (timeUnit === unitTypes.days) {
     return (

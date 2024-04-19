@@ -1,16 +1,16 @@
 import React from 'react'
-import { useTimerStore } from '../store/timerStore';
-import Subtitle from './Subtitle';
-import { ThemeType, themeTypes } from '../types';
-import { capitalize } from '../utils/capitalize';
+import { useTimerStore } from '../stores/timerStore'
+import Subtitle from './Subtitle'
+import { ThemeType, themeTypes } from '../types'
+import { capitalize } from '../utils/capitalize'
 
 function Theme() {
-  const theme = useTimerStore((state) => state.theme);
-  const setTheme = useTimerStore((state) => state.setTheme);
+  const theme = useTimerStore((state) => state.theme)
+  const setTheme = useTimerStore((state) => state.setTheme)
 
   const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTheme(event.target.value as ThemeType);
-  };
+    setTheme(event.target.value as ThemeType)
+  }
   return (
     <div>
       <Subtitle subtitle='Timer Style' />

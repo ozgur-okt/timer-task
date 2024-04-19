@@ -40,7 +40,7 @@ function Timer() {
 
   return (
     <div
-      className={`flex items-center justify-between px-10 h-20 shadow w-[48rem] ${getTimerPosition(position)}`}
+      className={`flex items-center gap-12 px-10 h-20 shadow w-[48rem] ${getTimerPosition(position)}`}
       style={{ backgroundColor: getColor(theme, 'container') }}
     >
       <h5 className='font-extrabold' style={{ color: getColor(theme, 'text') }}>{checkLength(20, header)}</h5>
@@ -49,7 +49,7 @@ function Timer() {
         {isExploding && <ConfettiExplosion />}
         <CustomButton />
       </div>
-      {isCloseIconVisible && <button className='hover:shadow-md rounded-full' onClick={() => setIsOpen(false)}><CloseIcon color={getColor(theme, 'text')} /></button>}
+      {isCloseIconVisible && <button className='translate-x-12' onClick={() => setIsOpen(false)}><CloseIcon color={getColor(theme, 'text')} /></button>}
     </div>
   );
 }

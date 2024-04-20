@@ -5,9 +5,6 @@ import CustomButton from '../elements/CustomButton';
 jest.mock('../stores/buttonStore', () => ({
   useButtonStore: jest.fn()
 }));
-jest.mock('../stores/timerStore', () => ({
-  useTimerStore: jest.fn()
-}));
 
 test('renders CustomButton and checks for button label and link', () => {
   const mockLabel = 'Test';
@@ -19,12 +16,8 @@ test('renders CustomButton and checks for button label and link', () => {
       label: mockLabel,
       link: mockLink
     }));
-  require('../stores/timerStore').useTimerStore
-    .mockImplementation((selector: any) => selector({
-      theme: mockTheme
-    }));
 
-  render(<CustomButton />);
+  render(<CustomButton theme={mockTheme} />);
 
   const buttonElement = screen.getByRole('link', { name: mockLabel });
   expect(buttonElement).toBeInTheDocument();

@@ -45,7 +45,7 @@ function Timer() {
       <PrecisedUnits time={time} />
       <div>
         {isExploding && <ConfettiExplosion />}
-        <CustomButton />
+        <CustomButton theme={theme} />
       </div>
       {isCloseIconVisible &&
         <button className='translate-x-12' onClick={() => setIsOpen(false)}>

@@ -1,5 +1,5 @@
 # Timer Task App
-This is a React application for managing timer tasks. It uses;
+This is a React application for countdown timer. It uses;
 * TypeScript for static typing, 
 * Zustand for state management, 
 * Tailwind CSS for styling, 

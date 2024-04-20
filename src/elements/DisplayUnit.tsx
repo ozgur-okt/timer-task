@@ -11,19 +11,17 @@ function DisplayUnit({ unit }: DisplayUnitProps) {
   const display = useUnitLabelStore((state) => state.display)
   const toggleDisplay = useUnitLabelStore((state) => state.toggleDisplay)
 
-  const handleDisplayChange = (unit: UnitType) => (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    console.log(event)
-    toggleDisplay(unit)
+  const handleDisplayChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    toggleDisplay(event.target.value as UnitType)
   }
 
   return (
     <div className='inline mr-2'>
       <input className='align-middle mt-[-2px] mr-1 accent-black'
         type="checkbox"
+        value={unit}
         checked={display[unit]}
-        onChange={handleDisplayChange(unit)} 
+        onChange={handleDisplayChange}
       />
       <label className='text-xs'>{capitalize(unit)}</label>
     </div>

@@ -38,7 +38,7 @@ function Timer() {
 
   return (
     <div
-      className={`flex items-center gap-12 px-10 h-20 shadow w-[48rem] ${getTimerPosition(position)}`}
+      className={`flex items-center gap-14 px-20 h-20 shadow w-[55rem] ${getTimerPosition(position)}`}
       style={{ backgroundColor: getColor(theme, 'container') }}
     >
       <TimerHeader theme={theme} />
@@ -48,7 +48,7 @@ function Timer() {
         <CustomButton theme={theme} />
       </div>
       {isCloseIconVisible &&
-        <button className='translate-x-12' onClick={() => setIsOpen(false)}>
+        <button className='translate-x-[55px]' onClick={() => setIsOpen(false)}>
           <CloseIcon color={getColor(theme, 'text')} />
         </button>
       }

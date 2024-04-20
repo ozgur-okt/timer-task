@@ -18,12 +18,12 @@ function RedirectButton() {
   }
 
   return (
-    <div>
+    <>
       <Subtitle subtitle='Button Text' />
       <TextInput value={label} setValue={handleLabelChange} />
       <Subtitle subtitle='Button Link' />
       <TextInput value={link} setValue={handleLinkChange} />
-    </div>
+    </>
   )
 }
 

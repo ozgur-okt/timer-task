@@ -16,7 +16,12 @@ function Precision({ timeUnitProp }: PrecisionProps) {
     setTimeUnit(event.target.value as UnitType)
   }
   return (
-    <RadioInput value={timeUnitProp} label={capitalize(timeUnitProp)} checked={timeUnit === timeUnitProp} setValue={handleTimeUnitChange} />
+    <RadioInput
+      value={timeUnitProp}
+      label={capitalize(timeUnitProp)}
+      checked={timeUnit === timeUnitProp}
+      setValue={handleTimeUnitChange}
+    />
   )
 }
 

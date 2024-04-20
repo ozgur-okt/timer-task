@@ -25,12 +25,18 @@ function Unit({ unit, value }: UnitProps) {
     <div className='flex flex-col items-center'>
       <div className='flex'>
         {digits.map((digit, index) => (
-          <div key={index} className='mx-[1px] w-5 h-8 flex justify-center items-center font-bold rounded' style={{ backgroundColor: getColor(theme, 'digit'), color: getColor(theme, 'text') }}>
+          <div
+            key={index}
+            className='mx-[1px] w-5 h-8 flex justify-center items-center font-bold rounded'
+            style={{ backgroundColor: getColor(theme, 'digit'), color: getColor(theme, 'text') }}
+          >
             {digit}
           </div>
         ))}
       </div>
-      <p className='text-[9px] font-semibold' style={{ color: getColor(theme, 'text') }}>{checkLength(7, customLabel)}</p>
+      <p className='text-[9px] font-semibold' style={{ color: getColor(theme, 'text') }}>
+        {checkLength(7, customLabel)}
+      </p>
     </div>
   )
 }

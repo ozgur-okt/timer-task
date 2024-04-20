@@ -20,10 +20,10 @@ function UnitLabel({ unit }: UnitLabelProps) {
   }
 
   return (
-    <div>
+    <>
       <Subtitle subtitle={`${capitalize(unit)} Label`} />
       <TextInput value={labels[unit]} setValue={handleUnitLabelChange(unit)} />
-    </div>
+    </>
   )
 }
 

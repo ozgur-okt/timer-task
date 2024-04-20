@@ -3,7 +3,7 @@ import { useTimerStore } from '../stores/timerStore'
 import Subtitle from './Subtitle'
 import TextInput from './TextInput'
 
-function TimerTitle() {
+function TimerHeaderSetting() {
   const header = useTimerStore((state) => state.header)
   const setHeader = useTimerStore((state) => state.setHeader)
 
@@ -12,11 +12,11 @@ function TimerTitle() {
   }
 
   return (
-    <div>
+    <>
       <Subtitle subtitle='Timer Title' />
       <TextInput value={header} setValue={handleHeaderChange} />
-    </div>
+    </>
   )
 }
 
-export default TimerTitle
+export default TimerHeaderSetting

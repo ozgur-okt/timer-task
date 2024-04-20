@@ -29,6 +29,7 @@
         "quotes": [
             "error",
             "single"
-        ]
+        ],
+        "react/jsx-max-props-per-line": ["error", { "maximum": 2 }]
     }
 }

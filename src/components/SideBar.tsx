@@ -8,7 +8,7 @@ import UnitLabel from '../elements/UnitLabel'
 import { PositionType, positionTypes, unitTypes } from '../types'
 import RedirectButton from '../elements/RedirectButton'
 import Title from '../elements/Title'
-import TimerTitle from '../elements/TimerTitle'
+import TimerHeaderSetting from '../elements/TimerHeaderSetting'
 import Subtitle from '../elements/Subtitle'
 import Precision from '../elements/Precision'
 
@@ -19,7 +19,7 @@ function SideBar() {
       <Title title='Timer Settings' />
       <Theme />
       <ToggleButton />
-      <TimerTitle />
+      <TimerHeaderSetting />
       <Subtitle subtitle='Set the time in' />
       {Object.values(unitTypes).map((unit) => (
         <Precision key={unit} timeUnitProp={unit} />

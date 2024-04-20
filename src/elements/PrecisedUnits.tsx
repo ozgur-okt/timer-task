@@ -9,7 +9,6 @@ type PrecisedUnitsProps = {
 
 function PrecisedUnits({ time }: PrecisedUnitsProps) {
   const timeUnit = useTimerStore((state) => state.timeUnit)
-
   const seconds = time % 60
   const minutes = Math.floor(time / 60) % 60
   const hours = Math.floor(time / 3600) % 24

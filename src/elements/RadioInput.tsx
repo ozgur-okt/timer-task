@@ -10,7 +10,13 @@ type RadioInputProps = {
 function RadioInput({ value, checked, label, setValue }: RadioInputProps) {
   return (
     <div className='inline mr-2'>
-      <input type="radio" className='align-middle mr-1 accent-black' value={value} checked={checked} onChange={setValue} />
+      <input
+        type="radio"
+        className='align-middle mr-1 accent-black'
+        value={value}
+        checked={checked}
+        onChange={setValue}
+      />
       <label className='text-xs'>{label}</label>
     </div>
   )

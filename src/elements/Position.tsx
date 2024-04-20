@@ -15,7 +15,12 @@ function Position({ positionProp }: PositionProps) {
   }
 
   return (
-    <RadioInput value={positionProp} label={positionTypesNamingMap[positionProp]} checked={position === positionProp} setValue={handlePositionChange} />
+    <RadioInput 
+      value={positionProp}
+      label={positionTypesNamingMap[positionProp]}
+      checked={position === positionProp}
+      setValue={handlePositionChange} 
+    />
   )
 }
 
